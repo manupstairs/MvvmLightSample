@@ -1,6 +1,6 @@
-﻿using CommonServiceLocator;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using System;
 using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace MvvmLightSample
 
         private void GotoNext()
         {
-            var navigationService = ServiceLocator.Current.GetInstance<INavigationService>();
+            var navigationService = SimpleIoc.Default.GetInstance<INavigationService>();
             navigationService.NavigateTo("PageTwo");
         }
 

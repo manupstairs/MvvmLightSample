@@ -1,5 +1,4 @@
-﻿using CommonServiceLocator;
-using GalaSoft.MvvmLight.Ioc;
+﻿using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using System;
 using System.Collections.Generic;
@@ -13,7 +12,6 @@ namespace MvvmLightSample
     {
         public ViewModelLocator()
         {
-            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<PageTwoViewModel>();
 
@@ -34,7 +32,7 @@ namespace MvvmLightSample
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return SimpleIoc.Default.GetInstance<MainViewModel>();
             }
         }
 
@@ -42,7 +40,7 @@ namespace MvvmLightSample
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<PageTwoViewModel>();
+                return SimpleIoc.Default.GetInstance<PageTwoViewModel>();
             }
         }
     }
